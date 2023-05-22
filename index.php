@@ -34,33 +34,43 @@
                         <h4 class="card-title">Add Students</h4>
                     </div>
                     <div class="card-body">
+                        
+                        <!-- response message here  -->
+                        <div class="responseMessageBox">
+                            <!-- <div class="alert alert-info" role="alert">
+                                <strong>Response Message Here</strong> 
+                            </div> -->
+                        </div>
+                        
+                        
                         <div class="mb-3 ">
                             <label for="name" class="form-label">Name:</label>
                             <input type="text"
-                            class="form-control" name="name" id="name" placeholder="Add Student Name" >
+                            class="form-control name" name="name" id="name" placeholder="Add Student Name" >
+                            <!-- <badge class= "text-danger">Name Field Is Required</badge> -->
                         </div>
 
                         <div class="mb-3 ">
                             <label for="phone" class="form-label">Phone:</label>
                             <input type="text"
-                            class="form-control" name="phone" id="phone" placeholder="Add Student Phone Number" >
+                            class="form-control phone" name="phone" id="phone" placeholder="Add Student Phone Number" >
                         </div>
                         
                         <div class="mb-3 ">
                             <label for="email" class="form-label">Email:</label>
                             <input type="email"
-                            class="form-control" name="email" id="email" placeholder="Add Student Email Address">
+                            class="form-control email" name="email" id="email" placeholder="Add Student Email Address">
                         </div>
                         <div class="mb-3">
                             <label for="" class="form-label">Status:</label>
-                            <select class="form-select " name="status" id="status">
-                                <option selected>--- Select Status ---</option>
+                            <select class="form-select status" name="status" id="status" value="">
+                                <option >---Select Status---</option>
                                 <option value="1">Active</option>
                                 <option value="2">Inactive</option>
                             </select>
                         </div>
                         <div class="mb-3">
-                        <button type="Submit" class="btn btn-info btn-sm" id="Submit" name = "Submit" >Register</button>
+                            <button type="submit" class="btn btn-info btn-sm register" id="register" name= "register" >Register</button>
                         </div>
                     </div>
                 </div>
