@@ -83,7 +83,7 @@
                 if($singleData['status'] == 1){
                     $status = '<button type="Submit" value= "'.$singleData['id'].'" class="inactive btn btn-dark btn-sm" id="statusBtn" name = "statusBtn" >Inactive</button>';
                 }else{
-                    $status = '<button type="Submit" class="btn btn-dark btn-sm" id="statusBtn" name = "statusBtn" >Active</button>';
+                    $status = '<button type="Submit" value= "'.$singleData['id'].'" class="active btn btn-dark btn-sm" id="statusBtn" name = "statusBtn" >Active</button>';
 
                 }
 
@@ -109,6 +109,26 @@
             ';
         }
 
-
+        
     };
+    
+    // active method here 
+    function active(){
+        $id = $_POST['id'];
+        $con = new mysqli("localhost", "root", "", "ajax_crud");
+        $sql = "UPDATE students SET status = '2' WHERE id = '$id'";
+        $update = $con->query($sql);
+
+
+    }
+    // inactive method here 
+    function inactive(){
+        $id = $_POST['id'];
+        $con = new mysqli("localhost", "root", "", "ajax_crud");
+        $sql = "UPDATE students SET status = '1' WHERE id = '$id'";
+        $update = $con->query($sql);
+
+
+    }
+
 ?>

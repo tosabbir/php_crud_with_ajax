@@ -219,8 +219,37 @@ jQuery(document).ready(function(){
         });
     }
 
+    // inactive to active reaquest here 
     jQuery(document).on('click', '.inactive', function(){
         let id = jQuery(this).val();
-        alert(id);
+        jQuery.ajax({
+            type: "POST",
+            data: {
+                'call': "active",
+                'id': id,
+            },
+            url: "controllers/crud_controller.php",
+            success: function (response) {
+                show();
+            }
+
+        });
+    })
+
+    // active to inactive request here 
+    jQuery(document).on('click', '.active', function(){
+        let id = jQuery(this).val();
+        jQuery.ajax({
+            type: "POST",
+            data: {
+                'call': "inactive",
+                'id': id,
+            },
+            url: "controllers/crud_controller.php",
+            success: function (response) {
+                show();
+            }
+
+        });
     })
 });
