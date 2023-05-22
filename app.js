@@ -277,4 +277,74 @@ jQuery(document).ready(function(){
 
         });
     })
+
+
+    // update request method from here 
+    jQuery(document).on('click', '.edit', function(){
+        let id = jQuery(this).val();
+        
+        jQuery.ajax({
+            type: "POST",
+            dataType: "JSON",
+            data: {
+                'call': "find",
+                'id': id,
+            },
+            url: "controllers/crud_controller.php",
+            success: function (response) {
+
+                // set value in form 
+                jQuery('.name').val(response.name);
+                jQuery('.phone').val(response.phone);
+                jQuery('.email').val(response.email);
+                jQuery('.status').val(response.status);
+
+                // set value in modal form 
+                jQuery('#name').val(response.name);
+                jQuery('#phone').val(response.phone);
+                jQuery('#email').val(response.email);
+                jQuery('#status').val(response.status);
+
+                // replace register button to update button 
+                jQuery('<button type="submit" class="btn btn-info btn-sm update" id="update" name= "update" >Update</button>').insertAfter('.register');
+
+                // update button value set 
+                jQuery('.update').val(response.id)
+                jQuery('.register').hide();
+
+            }
+
+        });
+    })
+     // finally update request update button which is replace in register button 
+     jQuery(document).on('click', '.update', function(){
+        let id = jQuery('.update').val();
+        let name = jQuery('.name').val();
+        let phone = jQuery('.phone').val();
+        let email = jQuery('.email').val();
+        let status = jQuery('.status').val();
+        
+        jQuery.ajax({
+            type: "POST",
+            data: {
+                'call': "update",
+                'id': id,
+                'name': name,
+                'phone': phone,
+                'email': email,
+                'status': status,
+            },
+            url: "controllers/crud_controller.php",
+            success: function (response) {
+
+                jQuery('.name').val('');
+                jQuery('.phone').val('');
+                jQuery('.email').val('');
+                jQuery('.status').val('');
+                show();
+            }
+
+        });
+    })
+
 });

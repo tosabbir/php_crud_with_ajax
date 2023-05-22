@@ -69,7 +69,7 @@
                                 <option value="2">Inactive</option>
                             </select>
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-3 buttonBox">
                             <button type="submit" class="btn btn-info btn-sm register" id="register" name= "register" >Register</button>
                         </div>
                     </div>

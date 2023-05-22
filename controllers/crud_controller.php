@@ -95,7 +95,10 @@
                         <td>'.$singleData['email'].'</td>
                         <td>'.$status.'</td>
                         <td>
-                            <button type="Submit" class="btn btn-info btn-sm edit"><i class="fa fa-edit"></i></button>
+
+                            <button type="Submit" class="btn btn-info btn-sm edit" value="'.$singleData['id'].'"><i class="fa fa-edit"></i></button>
+                           
+
                             <button type="Submit" value="'.$singleData['id'].'" class="delete btn btn-danger btn-sm" data-bs-toggle= "modal" data-bs-target= "#deleteModal"><i class="fa fa-trash"></i></button>
                         </td>
                     </tr>
@@ -141,4 +144,28 @@
         
     }
 
+    // find method here for edit single student value
+    function find(){
+        $id = $_POST['id'];
+        $con = new mysqli("localhost", "root", "", "ajax_crud");
+        $sql = "SELECT * FROM `students` WHERE id = '$id'";
+        $singleObject = $con->query($sql);
+        $singleData = $singleObject->fetch_assoc();
+
+        echo json_encode($singleData);
+    }
+
+    function update(){
+        $id = $_POST['id'];
+        $name = $_POST['name'];
+        $phone = $_POST['phone'];
+        $email = $_POST['email'];
+        $status = $_POST['status'];
+
+        $con = new mysqli("localhost", "root", "", "ajax_crud");
+
+        $sql = "UPDATE students SET `name`='$name',`phone`='$phone',`email`='$email',`status`='$status'  WHERE id = '$id'";
+        $update = $con->query($sql);
+
+    }
 ?>
