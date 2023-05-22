@@ -138,8 +138,8 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h2 class="modal-title" id="exampleModalLabel">Add Student</h2>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h2 class="modal-title" id="exampleModalLabel">Add Student</h2>    
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>            
                 </div>
                 <div class="modal-body">
                     <div class="card">
@@ -191,6 +191,29 @@
         </div>
         </div>
         <!-- student add modal area end here  -->
+
+
+        <!-- delete confirm modal start here  -->
+
+        <div class="modal fade" id="deleteModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="staticBackdropLabel">Confirmation Message</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h5>Are You Sure Want To Delete This?</h5>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                <button type="button" class="btn btn-primary deleteModalbtn" id="deleteModalbtn">Yes</button>
+            </div>
+            </div>
+        </div>
+        </div>
+
+        <!-- delete confirm modal end here  -->
       </div>
     </div>
 

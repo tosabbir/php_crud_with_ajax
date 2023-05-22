@@ -252,4 +252,29 @@ jQuery(document).ready(function(){
 
         });
     })
+
+    // get id from table delete button and set id to confirm delete button on modal
+    jQuery(document).on('click', '.delete', function(){
+        let id = jQuery(this).val();
+        jQuery('#deleteModalbtn').val(id);
+    })
+
+    // finally delete request from confirmation delete button on modal 
+    jQuery(document).on('click', '#deleteModalbtn', function(){
+        let id = jQuery(this).val();
+        
+        jQuery.ajax({
+            type: "POST",
+            data: {
+                'call': "delete",
+                'id': id,
+            },
+            url: "controllers/crud_controller.php",
+            success: function (response) {
+                jQuery('#deleteModal').modal('hide');
+                show();
+            }
+
+        });
+    })
 });

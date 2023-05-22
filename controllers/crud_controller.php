@@ -96,7 +96,7 @@
                         <td>'.$status.'</td>
                         <td>
                             <button type="Submit" class="btn btn-info btn-sm edit"><i class="fa fa-edit"></i></button>
-                            <button type="Submit" class="btn btn-danger btn-sm delete"><i class="fa fa-trash"></i></button>
+                            <button type="Submit" value="'.$singleData['id'].'" class="delete btn btn-danger btn-sm" data-bs-toggle= "modal" data-bs-target= "#deleteModal"><i class="fa fa-trash"></i></button>
                         </td>
                     </tr>
                 ';
@@ -121,6 +121,7 @@
 
 
     }
+
     // inactive method here 
     function inactive(){
         $id = $_POST['id'];
@@ -129,6 +130,15 @@
         $update = $con->query($sql);
 
 
+    }
+
+    // Delete method here 
+    function delete(){
+        $id = $_POST['id'];
+        $con = new mysqli("localhost", "root", "", "ajax_crud");
+        $sql = "DELETE FROM `students` WHERE id = '$id'";
+        $update = $con->query($sql);
+        
     }
 
 ?>
