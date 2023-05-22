@@ -12,6 +12,7 @@
 
     // $con = mysqli_connect('$hostname','$username','$password','$dbname');
 
+    // data insert method here 
     function insert(){
         $name = $_POST['name'];
         $phone = $_POST['phone'];
@@ -69,6 +70,45 @@
         }
         
 
-    }
+    };
 
+    // data show method here 
+    function show(){
+        $con = new mysqli("localhost", "root", "", "ajax_crud");
+        $sql = "SELECT * FROM `students`";
+        $allData = $con->query($sql);
+        
+        if($allData){
+           while ($singleData = $allData->fetch_assoc()) {
+                if($singleData['status'] == 1){
+                    $status = '<button type="Submit" value= "'.$singleData['id'].'" class="inactive btn btn-dark btn-sm" id="statusBtn" name = "statusBtn" >Inactive</button>';
+                }else{
+                    $status = '<button type="Submit" class="btn btn-dark btn-sm" id="statusBtn" name = "statusBtn" >Active</button>';
+
+                }
+
+            echo '
+                    <tr class="table-primary" >    
+                        <td>'.$singleData['id'].'</td>
+                        <td>'.$singleData['name'].'</td>
+                        <td>'.$singleData['phone'].'</td>
+                        <td>'.$singleData['email'].'</td>
+                        <td>'.$status.'</td>
+                        <td>
+                            <button type="Submit" class="btn btn-info btn-sm edit"><i class="fa fa-edit"></i></button>
+                            <button type="Submit" class="btn btn-danger btn-sm delete"><i class="fa fa-trash"></i></button>
+                        </td>
+                    </tr>
+                ';
+           }
+        }else{
+            echo '
+                <tr>
+                    <td colspan="6" class="bg-white text-danger text-center">No Data To Show</td>
+                </tr>
+            ';
+        }
+
+
+    };
 ?>

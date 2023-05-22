@@ -46,24 +46,24 @@
                         <div class="mb-3 ">
                             <label for="name" class="form-label">Name:</label>
                             <input type="text"
-                            class="form-control name" name="name" id="name" placeholder="Add Student Name" >
+                            class="form-control name" name="name" placeholder="Add Student Name" >
                             <!-- <badge class= "text-danger">Name Field Is Required</badge> -->
                         </div>
 
                         <div class="mb-3 ">
                             <label for="phone" class="form-label">Phone:</label>
                             <input type="text"
-                            class="form-control phone" name="phone" id="phone" placeholder="Add Student Phone Number" >
+                            class="form-control phone" name="phone" placeholder="Add Student Phone Number" >
                         </div>
                         
                         <div class="mb-3 ">
                             <label for="email" class="form-label">Email:</label>
                             <input type="email"
-                            class="form-control email" name="email" id="email" placeholder="Add Student Email Address">
+                            class="form-control email" name="email" placeholder="Add Student Email Address">
                         </div>
                         <div class="mb-3">
                             <label for="" class="form-label">Status:</label>
-                            <select class="form-select status" name="status" id="status" value="">
+                            <select class="form-select status" name="status" value="">
                                 <option >---Select Status---</option>
                                 <option value="1">Active</option>
                                 <option value="2">Inactive</option>
@@ -79,10 +79,15 @@
 
         <!-- all student information show here  -->
          <div class="col-md-8 ">
+            
             <div class="card text-start">
                 <div class="card">
+                
                     <div class="card-header">
                         <h4 class="card-title">All Students</h4>
+                         <!-- Button trigger modal -->
+                         <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#insertModal"><i class="fa fa-plus"></i></button>
+
                     </div>
                     <div class="card-body">
                      <div class="table-responsive-md">
@@ -94,7 +99,7 @@
                             <thead class="table-light">
                                 <caption>All Students</caption>
                                 <tr>
-                                    <th>Sl:</th>
+                                    <th>ID:</th>
                                     <th>Name</th>
                                     <th>Phone</th>
                                     <th>Email</th>
@@ -102,24 +107,13 @@
                                     <th>Action</th>
                                 </tr>
                                 </thead>
-                                <tbody class="table-group-divider">
-                                     <tr class="table-primary" >    
-                                        <td>1</td>
-                                        <td>Tanbir</td>
-                                        <td>01784788744</td>
-                                        <td>tanbir@live.com</td>
-                                        <td>
-                                        <button type="Submit" class="btn btn-dark btn-sm" id="statusBtn" name = "statusBtn" >Active</button>
-                                        </td>
-                                        <td>
-                                            <button type="Submit" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></button>
-                                            <button type="Submit" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
-                                        </td>
-                                    </tr>
+                                <tbody class="table-group-divider tableData">
+                                   
+                                    
                                 </tbody>
                                 <tfoot>
                                 <tr>
-                                    <th>Sl:</th>
+                                    <th>ID:</th>
                                     <th>Name</th>
                                     <th>Phone</th>
                                     <th>Email</th>
@@ -135,6 +129,68 @@
                 </div>
             </div>
         </div>
+
+
+        <!-- student add modal area start here  -->
+     
+        <!-- Modal -->
+        <div class="modal fade" id="insertModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="exampleModalLabel">Add Student</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="card">
+                        <div class="card-body">
+                            
+                            <!-- response message here  -->
+                            <div class="responseMessageBox">
+                                <!-- <div class="alert alert-info" role="alert">
+                                    <strong>Response Message Here</strong> 
+                                </div> -->
+                            </div>
+                            
+                            
+                            <div class="mb-3 ">
+                                <label for="name" class="form-label">Name:</label>
+                                <input type="text"
+                                class="form-control " name="name" id="name" placeholder="Add Student Name" >
+                                <!-- <badge class= "text-danger">Name Field Is Required</badge> -->
+                            </div>
+
+                            <div class="mb-3 ">
+                                <label for="phone" class="form-label">Phone:</label>
+                                <input type="text"
+                                class="form-control " name="phone" id="phone" placeholder="Add Student Phone Number" >
+                            </div>
+                            
+                            <div class="mb-3 ">
+                                <label for="email" class="form-label">Email:</label>
+                                <input type="email"
+                                class="form-control " name="email" id="email" placeholder="Add Student Email Address">
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Status:</label>
+                                <select class="form-select " name="status" id="status" value="">
+                                    <option >---Select Status---</option>
+                                    <option value="1">Active</option>
+                                    <option value="2">Inactive</option>
+                                </select>
+                            </div>
+                           
+                        </div>
+                    </div>
+                    </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-info btn-sm " id="register" name= "register" >Register</button>
+                </div>
+            </div>
+        </div>
+        </div>
+        <!-- student add modal area end here  -->
       </div>
     </div>
 
@@ -142,9 +198,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 
     <!-- bootstrap cdn here  -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    
     <!-- js file link here  -->
     <script src="app.js"></script>
 
