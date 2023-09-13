@@ -345,6 +345,23 @@ jQuery(document).ready(function(){
             }
 
         });
+        //     url: "controllers/crud_controller.php",
+        //     success: function (response) {
+
+        //         jQuery('.name').val('');
+        //         jQuery('.phone').val('');
+        //         jQuery('.email').val('');
+        //         jQuery('.status').val('');
+        //         show();
+        //     }
+
+        // });
     })
 
 });
+
+
+
+
+
+//sending message from ahmad ali
